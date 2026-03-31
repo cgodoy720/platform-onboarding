@@ -8,7 +8,7 @@ set -euo pipefail
 #    or: pursuit-sync --rebase
 # ============================================================================
 
-WORKSPACE="$HOME/Documents/pursuit"
+WORKSPACE="$HOME/Documents/pursuit-platform"
 ONBOARDING_REPO="cgodoy720/platform-onboarding"
 BRANCH="dev"
 

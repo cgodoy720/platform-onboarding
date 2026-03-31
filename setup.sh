@@ -6,7 +6,7 @@ set -euo pipefail
 # Usage: curl -fsSL https://raw.githubusercontent.com/cgodoy720/platform-onboarding/main/setup.sh | bash -s -- --passphrase "YOUR_PASSPHRASE"
 # ============================================================================
 
-WORKSPACE="$HOME/Documents/pursuit"
+WORKSPACE="$HOME/Documents/pursuit-platform"
 LOG_FILE="$WORKSPACE/.setup-log"
 ONBOARDING_REPO="cgodoy720/platform-onboarding"
 SERVER_REPO="cgodoy720/test-pilot-server"

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -uo pipefail
 
 # ============================================================================
 # Pursuit Platform Onboarding Wizard
@@ -152,7 +152,7 @@ if command -v brew &>/dev/null; then
   phase_step done "Homebrew already installed"
 else
   phase_step active "Installing Homebrew..."
-  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" < /dev/null
   # Add brew to PATH for this session
   eval "$($BREW_PREFIX/bin/brew shellenv)"
   # Add to .zprofile if not already there
@@ -220,7 +220,7 @@ fi
 if [[ -d "$HOME/.oh-my-zsh" ]]; then
   phase_step done "Oh My Zsh already installed"
 else
-  spin "Installing Oh My Zsh..." sh -c "RUNZSH=no KEEP_ZSHRC=yes $(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  spin "Installing Oh My Zsh..." sh -c "RUNZSH=no KEEP_ZSHRC=yes $(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" < /dev/null
   phase_step done "Oh My Zsh installed"
 fi
 
@@ -238,7 +238,7 @@ else
   gum style --foreground 214 --italic \
     "A browser window will open. Click 'Authorize GitHub CLI' and come back here."
   echo ""
-  gh auth login --web --git-protocol ssh
+  gh auth login --web --git-protocol ssh < /dev/null
   phase_step done "GitHub authenticated"
 fi
 
@@ -508,12 +508,12 @@ gum style \
   --bold --foreground 46 \
   "SETUP COMPLETE" \
   "" \
-  "Your workspace:  ~/Documents/pursuit/" \
-  "Backend:         ~/Documents/pursuit/test-pilot-server/" \
-  "Frontend:        ~/Documents/pursuit/pilot-client/" \
+  "Your workspace:  ~/Documents/pursuit-platform/" \
+  "Backend:         ~/Documents/pursuit-platform/test-pilot-server/" \
+  "Frontend:        ~/Documents/pursuit-platform/pilot-client/" \
   "" \
   "To start developing:" \
-  "  1. Open Cursor: cursor ~/Documents/pursuit/" \
+  "  1. Open Cursor: cursor ~/Documents/pursuit-platform/" \
   "  2. Open two terminals in Cursor" \
   "  3. Backend:  cd test-pilot-server && npm start" \
   "  4. Frontend: cd pilot-client && npm run dev" \
